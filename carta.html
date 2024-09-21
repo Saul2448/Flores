@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta con 5 flores</title>
+    <style>
+        body {
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .scene {
+            width: 500px;
+            height: 300px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #5a189a, #9d4edd);
+            border-radius: 15px;
+            box-shadow: 0 0 30px yellow;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(0deg);
+            transition: transform 1s;
+        }
+
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: white;
+        }
+
+        .card .card-front {
+            background-color: #5a189a;
+        }
+
+        .card .card-back {
+            background: linear-gradient(135deg, #5a189a, #9d4edd);
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+        }
+
+        /* Estilos para la flor */
+        .flower {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .flower .stem {
+            width: 2px;
+            height: 100px;
+            background-color: green;
+            z-index: 1;
+        }
+
+        .flower .center {
+            width: 30px;
+            height: 30px;
+            background-color: rgb(67, 43, 15);
+            border-radius: 50%;
+            position: relative; /* Ahora el centro es relativo a su flor */
+            z-index: 2;
+        }
+
+        .flower .petals {
+            position: absolute;
+            width: 20px;
+            height: 60px;
+        }
+
+        .flower .petals div {
+            width: 20px;
+            height: 30px;
+            background: linear-gradient(135deg, #fff700, #ffeb3b);
+            position: absolute;
+            border-radius: 50%;
+            transform-origin: center center; /* Rotar alrededor del centro del pétalo */
+        }
+
+        /* Posición de los pétalos alrededor del centro visible */
+        .petal1 {
+            transform: rotate(0deg) translate(0, -35px); /* Apunta hacia el centro visible */
+        }
+
+        .petal2 {
+            transform: rotate(72deg) translate(0, -35px);
+        }
+
+        .petal3 {
+            transform: rotate(144deg) translate(0, -35px);
+        }
+
+        .petal4 {
+            transform: rotate(216deg) translate(0, -35px);
+        }
+
+        .petal5 {
+            transform: rotate(288deg) translate(0, -35px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <div class="card" id="card">
+            <!-- Cara delantera -->
+            <div class="card-face card-front">
+                ¡Haz clic para ver las flores!
+            </div>
+
+            <!-- Cara trasera con flores -->
+            <div class="card-face card-back">
+                <!-- 5 flores -->
+                <div class="flower">
+                    <div class="center"></div>
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal1"></div>
+                        <div class="petal2"></div>
+                        <div class="petal3"></div>
+                        <div class="petal4"></div>
+                        <div class="petal5"></div>
+                    </div>
+                </div>
+
+                <div class="flower">
+                    <div class="center"></div>
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal1"></div>
+                        <div class="petal2"></div>
+                        <div class="petal3"></div>
+                        <div class="petal4"></div>
+                        <div class="petal5"></div>
+                    </div>
+                </div>
+
+                <div class="flower">
+                    <div class="center"></div>
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal1"></div>
+                        <div class="petal2"></div>
+                        <div class="petal3"></div>
+                        <div class="petal4"></div>
+                        <div class="petal5"></div>
+                    </div>
+                </div>
+
+                <div class="flower">
+                    <div class="center"></div>
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal1"></div>
+                        <div class="petal2"></div>
+                        <div class="petal3"></div>
+                        <div class="petal4"></div>
+                        <div class="petal5"></div>
+                    </div>
+                </div>
+
+                <div class="flower">
+                    <div class="center"></div>
+                    <div class="stem"></div>
+                    <div class="petals">
+                        <div class="petal1"></div>
+                        <div class="petal2"></div>
+                        <div class="petal3"></div>
+                        <div class="petal4"></div>
+                        <div class="petal5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('card');
+        card.addEventListener('click', function() {
+            card.classList.toggle('is-flipped');
+        });
+    </script>
+
+</body>
+</html>
